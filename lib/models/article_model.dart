@@ -23,17 +23,31 @@ class Article {
   });
 
   factory Article.fromJson(Map<String, dynamic> json) {
-  return Article(
-    source: Source.fromJson(json['source'] ?? {}),
-    author: json['author'] != null ? json['author'].toString() : '',
-    title: json['title'] != null ? json['title'].toString() : '',
-    description: json['description'] != null ? json['description'].toString() : '',
-    url: json['url'] != null ? json['url'].toString() : '',
-    urlToImage: json['urlToImage'] != null ? json['urlToImage'].toString() : '',
-    publishedAt: json['publishedAt'] != null ? json['publishedAt'].toString() : '',
-    content: json['content'] != null ? json['content'].toString() : '',
-  );
+    return Article(
+      source: Source.fromJson(json['source'] ?? {}),
+      author: json['author'] != null ? json['author'].toString() : '',
+      title: json['title'] != null ? json['title'].toString() : '',
+      description:
+          json['description'] != null ? json['description'].toString() : '',
+      url: json['url'] != null ? json['url'].toString() : '',
+      urlToImage:
+          json['urlToImage'] != null ? json['urlToImage'].toString() : '',
+      publishedAt:
+          json['publishedAt'] != null ? json['publishedAt'].toString() : '',
+      content: json['content'] != null ? json['content'].toString() : '',
+    );
+  }
+  Map<String, dynamic> toMap() {
+    return {
+      'sourceId': source.id,
+      'sourceName': source.name,
+      'author': author,
+      'title': title,
+      'description': description,
+      'url': url,
+      'urlToImage': urlToImage,
+      'publishedAt': publishedAt,
+      'content': content,
+    };
+  }
 }
-
-}
-
